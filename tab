@@ -1,0 +1,29 @@
+# create database `wedja'
+
+create table departamentos(
+	id int auto_increment primary key,
+    nome varchar(50),
+    bloco varchar(50)
+);
+
+create table empregados(
+	id int auto_increment primary key,
+    nome varchar(100),
+    matricula int,
+    dept_id int,
+    foreign key (dept_id) references departamentos (id)
+);
+
+insert into departamentos(nome, bloco)
+values ('TI', 'Bloco D'),('RH', 'Bloco F'), 
+('Financeiro', 'Bloco A'), ('Compras', 'Bloco B');
+
+insert into empregados (nome, matricula, dept_id)
+values ('Tamires', 654, 1), ('Ramires', 456, 2), ('Ivonete', 321, 2),
+('Maria', 213, 3), ('Alice', 410, 4), ('Vanessa', 614, 1);
+
+update departamentos
+set nome= 'DTI', bloco = 'Bloco C'
+where id = 1;
+
+select * from empregados
